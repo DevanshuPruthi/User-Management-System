@@ -1,0 +1,64 @@
+<%- include('../layouts/header.ejs') %>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        color: #333;
+        margin: 20px 0;
+    }
+
+    a {
+        text-decoration: none;
+        color: #007bff;
+        margin: 10px;
+        padding: 10px 20px;
+        border-radius: 4px;
+        background-color: #f8f9fa;
+        display: inline-block;
+    }
+
+    table {
+        width: 50%;
+        margin: 20px auto;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    img {
+        border-radius: 50%;
+    }
+</style>
+
+<h1>Welcome <%= admin.name %> to admin dashboard</h1>
+
+<a href="/admin/dashboard">Dashboard</a>
+
+<table>
+    <tr>
+        <td><img src="/userImages/<%= admin.image %>" width="100px" height="100px" alt="<%= admin.image %>"></td>
+    </tr>
+    <tr>
+        <td>Email</td>
+        <td><%= admin.email %></td>
+    </tr>
+    <tr>
+        <td>Mobile</td>
+        <td><%= admin.mobile %></td>
+    </tr>
+</table>
+
+<%- include('../layouts/footer.ejs') %>
+<a href="/admin/logout">Logout</a>

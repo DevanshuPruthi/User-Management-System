@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .header {
+            background-color: #94c3a1;
+            padding: 20px;
+            text-align: center;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        input[type="text"], input[type="email"], input[type="number"], input[type="password"], input[type="file"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+       
+        
+
+        .message {
+            color: green;
+            font-size: 16px;
+            padding: 10px 0;
+        }
+
+        
+        a{
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            width: 89%;
+            text-align: center;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        a:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Registration Form</h1>
+    </div>
+
+    <div class="form-container">
+        <form action="/createUser" method="post" enctype="multipart/form-data">
+            <input type="text" name="name" placeholder="Enter your name" required>
+            <br><br>
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <br><br>
+            <input type="number" name="mobile" placeholder="Enter your Mobile Number" required>
+            <br><br>
+            <input type="password" name="password" placeholder="Enter your password" required>
+            <br><br>
+            <input type="file" name="image" required>
+            <br><br>
+            <input type="submit" value="Register"> 
+            <br><br>
+            <a href="/login">Already have account? Login</a>
+
+            <% 
+                if (typeof message !== 'undefined') { 
+                    %>
+                        <p class="message"><%= message %></p>
+                    <%
+                } 
+            %>
+        </form>
+    </div>
+</body>
+</html>

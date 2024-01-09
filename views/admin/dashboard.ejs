@@ -1,0 +1,119 @@
+<%- include('../layouts/header.ejs') %>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        color: #333;
+        margin: 20px 0;
+    }
+
+    a {
+        text-decoration: none;
+        color: #007bff;
+        margin: 10px;
+        padding: 10px 20px;
+        border-radius: 4px;
+        background-color: #f8f9fa;
+        display: inline-block;
+    }
+
+    table {
+        width: 50%;
+        margin: 20px auto;
+        border-collapse: collapse;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        background-color: #fff;
+    }
+
+    th, td {
+        padding: 12px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    img {
+        border-radius: 50%;
+    }
+
+    p {
+        margin: 0;
+        color: #333;
+    }
+
+    td.actions a {
+        margin: 0 5px;
+        color: #007bff;
+        background-color: #f8f9fa;
+        padding: 5px 10px;
+        border-radius: 4px;
+    }
+
+    td.actions a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<h1>Dashboard</h1>
+
+<a href="/admin/new-user">Add new User</a> <br> <br>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        <th>Image</th>
+        <th>Verified</th>
+        <th>Action</th>
+    </tr>
+    <%
+        if(users.length > 0){
+            for(let i = 0; i < users.length; i++)
+            {
+                %>
+                <tr>
+                    <td><%= users[i].name%></td>
+                    <td><%= users[i].email%></td>
+                    <td><%= users[i].mobile%></td>
+                    <td><img src="/userImages/<%= users[i].image%>" alt="<%= users[i].image%>" width="100px" height="100px"></td>
+                    <td>
+                        <%
+                        if(users[i].is_varified === 0){
+                            %>
+                            <p>Not verified </p>
+                            <%
+                        }
+                        else{
+                            %>
+                            <p>Verified </p>
+                            <%
+                        }
+                        %>
+                    </td>
+                    <td class="actions">
+                        <a href="/admin/edit-user?id=<%= users[i]._id%>">Edit</a>
+                        <a href="/admin/delete-user?id=<%= users[i]._id%>">Delete</a>
+                    </td>
+                </tr>
+                <%
+            }
+        }
+        else{
+            %>
+            <tr>
+                <td colspan="5">User not found</td>
+            </tr>
+            <%
+        }
+    %>
+</table>
+
+<a href="/admin/home">Home</a>
+<%- include('../layouts/footer.ejs') %>

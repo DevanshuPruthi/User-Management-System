@@ -1,0 +1,72 @@
+<%- include('../layouts/header.ejs') %>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        color: #333;
+        margin: 20px 0;
+    }
+
+    form {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    label {
+        display: inline-block;
+        margin-bottom: 10px;
+        color: #555;
+    }
+
+    input[type="radio"] {
+        margin-right: 5px;
+    }
+
+    input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    a {
+        text-decoration: none;
+        color: #007bff;
+        margin-top: 10px;
+        display: inline-block;
+    }
+</style>
+
+<h1>Edit User</h1>
+
+<form action="" method="post">
+    <input type="text" name="name" required placeholder="Enter your Name" value="<%= user.name%>"> <br><br>
+    <input type="email" name="email" required placeholder="Enter your Email" value="<%= user.email%>"> <br><br>
+    <input type="number" name="mobile" required placeholder="Enter your Mobile" value="<%= user.mobile%>"> <br><br>
+    <label>Verified</label><input type="radio" name="verify" value="1" <% if(user.is_varified===1){%> checked <%} %> > <br><br>
+    <label>Unverified</label><input type="radio" name="verify" value="0" <% if(user.is_varified===0){%> checked <%} %> > <br><br>
+    <input type="hidden" name="id" value="<%= user._id %>">
+    <input type="submit" name="Update User" >
+</form>
+
+<a href="/admin/dashboard">Dashboard</a>
+<%- include('../layouts/footer.ejs') %>

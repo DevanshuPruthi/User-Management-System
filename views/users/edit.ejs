@@ -1,0 +1,59 @@
+<%- include('../layouts/header.ejs') %>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    img {
+        display: block;
+        margin: 20px auto;
+        border-radius: 50%;
+    }
+
+    form {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    input[type="file"] {
+        margin-bottom: 20px;
+    }
+
+    input[type="submit"] {
+        background-color: #4caf50;
+        color: #fff;
+        cursor: pointer;
+    }
+</style>
+
+<img src="userImages/<%= user.image %>" width="100px" height="100px" alt="<%= user.image %>">
+
+<form action="" method="post" enctype="multipart/form-data">
+
+    <input type="file" name="image"> <br><br>
+    <input type="hidden" name="user_id" value="<%= user._id %>">
+    <input type="text" name="name" value="<%= user.name %>" placeholder="Enter your Name"> <br><br>
+    <input type="email" name="email" value="<%= user.email %>" placeholder="Enter your Email"> <br><br>
+    <input type="number" name="mobile" value="<%= user.mobile %>" placeholder="Enter your Mobile"> <br><br>
+    <input type="submit" value="Update Profile">
+</form>
+
+<%- include('../layouts/footer.ejs') %>

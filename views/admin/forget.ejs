@@ -1,0 +1,58 @@
+<%- include('../layouts/header.ejs') %>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        color: #333;
+        margin: 20px 0;
+    }
+
+    h3 {
+        color: #d9534f;
+        margin: 10px 0;
+    }
+
+    form {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+    }
+</style>
+
+<h1>Forget</h1>
+
+<% if (typeof message !== 'undefined') { %>
+    <h3><%= message %></h3>
+<% } %>
+
+<form action="" method="post">
+    <input type="email" name="email" placeholder="Enter your Email"> <br><br>
+    <input type="submit" value="Reset your Password">
+</form>
+
+<%- include('../layouts/footer.ejs') %>

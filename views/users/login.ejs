@@ -1,0 +1,88 @@
+<%- include('../layouts/header.ejs') %>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        text-align: center;
+    }
+
+    h1 {
+        color: #333;
+    }
+
+    form {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    input[type="submit"] {
+        background-color: #4caf50;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    a {
+        text-decoration: none;
+        color: #007bff;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    label {
+        color: #555;
+    }
+
+    h4 {
+        color: #d9534f;
+    }
+
+    a.admin-link {
+        display: block;
+        margin-top: 10px;
+        color: #007bff;
+    }
+
+    a.admin-link:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<h1>User Login</h1>
+
+<form action="/login" method="post">
+
+    <% if (typeof message !== 'undefined') { %>
+        <h4><%= message %></h4>
+    <% } %>
+    
+    <input type="email" name="email" required placeholder="Enter email">
+    <br><br>
+    
+    <input type="password" name="password" required placeholder="Enter password">
+    <br><br>
+    
+    <input type="submit" value="Login">
+    <a href="/signUp">SignUp</a> <br><br>
+    <a href="/admin" class="admin-link"> Admin Login here</a>
+
+</form> <br><br>
+
+<a href="/forget">Forget Password</a>
+
+<%- include('../layouts/footer.ejs') %>

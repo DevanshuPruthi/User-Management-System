@@ -1,0 +1,85 @@
+<%- include('../layouts/header.ejs') %>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+    }
+
+    h1 {
+        color: #333;
+        margin: 20px 0;
+    }
+
+    form {
+        max-width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    input {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    input[type="file"] {
+        margin-bottom: 15px;
+    }
+
+    input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    p {
+        color: red;
+        margin: 10px 0;
+    }
+
+    a {
+        text-decoration: none;
+        color: #007bff;
+        display: inline-block;
+        margin-top: 10px;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<h1> Add new User</h1>
+
+<form action="" method="post" enctype="multipart/form-data">
+    <input type="text" name="name" placeholder="Enter your name" required>
+    <br><br>
+    <input type="email" name="email" placeholder="Enter your email" required>
+    <br><br>
+    <input type="number" name="mobile" placeholder="Enter your Mobile Number" required>
+    <br><br>
+    <input type="file" name="image" required>
+    <br><br>
+    <input type="submit" value="Add user"> 
+    <br><br>
+
+    <% 
+        if (typeof message !== 'undefined') { 
+            %>
+                <p><%= message %></p>
+            <%
+        } 
+    %>
+</form>
+<a href="/admin/dashboard">Dashboard</a>
+<%- include('../layouts/footer.ejs') %>
