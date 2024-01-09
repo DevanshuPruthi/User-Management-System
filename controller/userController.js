@@ -31,7 +31,7 @@ try {
         from:"csecec.1802028@gmail.com",
         to:email,
         subject: "For Verfication of user Management System",
-        html:'<p> Hii '+name+', please click here to <a href="http://localhost:2000/verify?id='+user_id+'"> Verify  </a> your mail. </p>'
+        html:'<p> Hii '+name+', please click here to <a href="https://usermanagement-h4vq.onrender.com/verify?id='+user_id+'"> Verify  </a> your mail. </p>'
     }
     transporter.sendMail(mailOptions,function(error,info){
         if(error){
@@ -64,7 +64,7 @@ const sendResetPasswordMail = async(name, email,token)=>{
             from:"csecec.1802028@gmail.com",
             to:email,
             subject: "For Rset Password",
-            html:'<p> Hii '+name+', please click here to <a href="http://localhost:2000/forget-password?token='+token+'"> Reset  </a> your    Password. </p>'
+            html:'<p> Hii '+name+', please click here to <a href="https://usermanagement-h4vq.onrender.com/forget-password?token='+token+'"> Reset  </a> your    Password. </p>'
         }
         await transporter.sendMail(mailOptions,function(error,info){
             if(error){

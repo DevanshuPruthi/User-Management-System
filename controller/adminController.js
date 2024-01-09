@@ -32,7 +32,7 @@ const securePassword = async(password)=>{
                 from:"csecec.1802028@gmail.com",
                 to:email,
                 subject: "Admin Added you, Please verify your mail",
-                html:'<p> Hii '+name+', please click here to <a href="http://localhost:2000/verify?id='+user_id+'"> Verify  </a> your mail. </p> <br> <b> Email:- </b>'+email+'<br> <b>Password:- </b>'+password+''
+                html:'<p> Hii '+name+', please click here to <a href="https://usermanagement-h4vq.onrender.com/verify?id='+user_id+'"> Verify  </a> your mail. </p> <br> <b> Email:- </b>'+email+'<br> <b>Password:- </b>'+password+''
             }
             transporter.sendMail(mailOptions,function(error,info){
                 if(error){
@@ -67,7 +67,7 @@ const sendResetPassword = async(name, email,token)=>{
             from:"csecec.1802028@gmail.com",
             to:email,
             subject: "For Rset Password",
-            html:'<p> Hii '+name+', please click here to <a href="http://localhost:2000/admin/forget-password?token='+token+'"> Reset  </a> your    Password. </p>'
+            html:'<p> Hii '+name+', please click here to <a href="https://usermanagement-h4vq.onrender.com/admin/forget-password?token='+token+'"> Reset  </a> your    Password. </p>'
         }
         await transporter.sendMail(mailOptions,function(error,info){
             if(error){
